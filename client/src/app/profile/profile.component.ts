@@ -35,9 +35,10 @@ imgSelectErr:any;
       });
   }
   onChange(event: any) {
-    this.image = event.target.files[0].name.toLowerCase();
-    this.file = event.target.files[0];
-    this.imgSelectErr = false;
+    
+    const file = event.target.files[0];
+    this.image = file;
+    
   }
 
   updateProfile(f: any) {

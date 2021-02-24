@@ -104,3 +104,7 @@ exports.profileGet = function(req, res, next) {
     user: req.user
   });
 }
+
+exports.updateUser = function (id, user) {
+  return User.findByIdAndUpdate(id, user);
+};
