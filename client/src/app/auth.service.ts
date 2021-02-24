@@ -76,6 +76,15 @@ export class AuthService {
     this.user = undefined;
     localStorage.clear();
   }
+  update(id: string, obj: any) {
+    
+    return this.http.put(
+      `http://localhost:3000/api/update/profile/${id}`,
+      obj
+    );
+ 
+  
+}
 
   private handleError(error: any): Promise<any> {
     if (error.status === 401) {

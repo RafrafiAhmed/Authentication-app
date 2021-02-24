@@ -11,6 +11,9 @@ import { AuthService } from '../auth.service';
 }) 
 export class ProfileComponent implements OnInit {
 user:any;
+image:any;
+file:any;
+imgSelectErr:any;
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -30,6 +33,35 @@ user:any;
           this.router.navigate(['/login']);
         }
       });
+  }
+  onChange(event: any) {
+    this.image = event.target.files[0].name.toLowerCase();
+    this.file = event.target.files[0];
+    this.imgSelectErr = false;
+  }
+
+  updateProfile(f: any) {
+     var id=this.user._id;
+
+    var obj = {
+      username:f.username,
+      firstName: f.firstName,
+      lastName: f.lastName,
+      email: f.email,
+      image: this.image
+      
+    };
+    console.log(obj);
+    // this.authService.update(id, obj).subscribe(() => {
+     
+    //   this.authService
+    //   .getProfile()
+    //   .then(data => {
+    //     console.log(data.user);
+    //     this.user=data.user
+       
+    //   });
+    // });
   }
 
 }

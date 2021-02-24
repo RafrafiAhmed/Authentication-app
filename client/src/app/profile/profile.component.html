@@ -1,8 +1,24 @@
 
 <div class="row">
+  <div>
+  <img
+          src="{{ user.image }}"
+          class="rounded-circle avatar-xl img-thumbnail"
+          
+        />
+        <div class="file-input">
+          <input
+            type="file"
+            accept="image/png, image/jpeg"
+            id="file"
+            class="file"
+            (change)="onChange($event)"
+          />
+      </div>
   <div class="col-md-6">
     <h2 class="page-header">Personal Profile</h2>
-      <form #userForm="ngForm">
+      <form #userForm="ngForm" (ngSubmit)="updateProfile(userForm.form.value)">
+        
       <div class="form-group">
         <label for="username">Username</label>
         <input type="text" class="form-control" name="username"
