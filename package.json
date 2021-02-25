@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "ng": "ng",
-    "build": "ng run build",
-    "start": "node ./bin/www",
-    "devstart": "nodemon ./bin/www"
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
