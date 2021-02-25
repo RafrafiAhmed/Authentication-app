@@ -36,9 +36,11 @@ imgSelectErr:any;
   }
   onChange(event: any) {
     
-    const file = event.target.files[0];
-    this.image = file;
-    
+  
+    this.image = event.target.file[0].name.toLowerCase();
+    this.file=event.target.file[0];
+    this.imgSelectErr=false;
+
   }
 
   updateProfile(f: any) {
@@ -53,16 +55,16 @@ imgSelectErr:any;
       
     };
     console.log(obj);
-    // this.authService.update(id, obj).subscribe(() => {
+    this.authService.update(id, obj).subscribe(() => {
      
-    //   this.authService
-    //   .getProfile()
-    //   .then(data => {
-    //     console.log(data.user);
-    //     this.user=data.user
+      this.authService
+      .getProfile()
+      .then(data => {
+        console.log(data.user);
+        this.user=data.user
        
-    //   });
-    // });
+      });
+    });
   }
 
 }
